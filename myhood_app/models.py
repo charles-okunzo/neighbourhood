@@ -16,6 +16,18 @@ class Neighbourhood(models.Model):
     contact_info = models.TextField()
     # admin = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
+    def create_neighbourhood(self):
+        self.save()
+
+    def delete_neighbourhood(self):
+        self.delete()
+    @classmethod
+    def find_neighbourhood(cls, id):
+        return cls.objects.get(pk=id)
+    @classmethod
+    def update_neighbourhood(cls, name, new_name):
+        return cls.objects.filter(hood_name = name).update(hood_name = new_name)
+
 
     @property
     def occupants_count(self):
