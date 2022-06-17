@@ -40,3 +40,16 @@ class Business(models.Model):
     # user = models.ForeignKey(Profile, related_name='business', on_delete=models.CASCADE)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name='business', on_delete=models.CASCADE)
     biz_email = models.EmailField(verbose_name='Business Email')
+
+
+    def create_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
+    @classmethod
+    def find_business(cls, id):
+        return cls.objects.get(pk=id)
+    @classmethod
+    def update_business(cls, name, new_name):
+        return cls.objects.filter(biz_name = name).update(biz_name = new_name)
