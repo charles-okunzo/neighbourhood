@@ -1,5 +1,7 @@
 from django.db import models
 
+# from users.models import Profile
+
 
 # Create your models here.
 
@@ -9,7 +11,10 @@ from django.db import models
 class Neighbourhood(models.Model):
     hood_name = models.CharField(verbose_name='Neighbourhood Name', max_length=100)
     hood_loc = models.CharField(verbose_name='Neighbourhood Location', max_length=100)
-    # admin = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField()
+    hood_image = models.ImageField(upload_to = 'hood_images', null=True)
+    contact_info = models.TextField()
+    # admin = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
 
     @property
@@ -20,6 +25,6 @@ class Neighbourhood(models.Model):
 
 class Business(models.Model):
     biz_name = models.CharField(verbose_name='Business Name', max_length=100)
-    # user = models.ForeignKey(User, related_name='business', on_delete=models.CASCADE)
+    # user = models.ForeignKey(Profile, related_name='business', on_delete=models.CASCADE)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name='business', on_delete=models.CASCADE)
     biz_email = models.EmailField(verbose_name='Business Email')
