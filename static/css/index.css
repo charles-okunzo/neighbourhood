@@ -6,7 +6,7 @@
 
 .banner{
     min-height: 100vh;
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.5),rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(../../static/images/pexels-photo-688835\ \(1\).jpeg);
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3),rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(../../static/images/pexels-photo-688835\ \(1\).jpeg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -54,3 +54,12 @@ small#hint_id_password2
 .register input::placeholder{
     color: #fff
 }
+
+.bg-color, nav{
+    color: #fff;
+    background-color: #161616;
+}
+
+/* .navbar-toggler-icon{
+    background-color: #fff;
+} */

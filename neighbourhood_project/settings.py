@@ -129,3 +129,6 @@ STATICFILES_DIRS=[
 ]
 CRISPY_TEMPLATE_PACK='bootstrap4'
 # AUTH_USER_MODEL='myhood_app.User'
+
+LOGIN_REDIRECT_URL='home'
+LOGIN_URL='login'

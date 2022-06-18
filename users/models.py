@@ -12,7 +12,7 @@ from myhood_app.models import Neighbourhood
 
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
-    bio = models.TextField()
+    bio = models.TextField(null=True, blank=True)
     profile_pic = models.ImageField(upload_to = 'profiles', null = True)
-    my_location = models.CharField(verbose_name='Location', max_length=100)
-    neighbourhood = models.ForeignKey(Neighbourhood, related_name='user_profile', on_delete=models.CASCADE, null=True)
+    my_location = models.CharField(verbose_name='Location', max_length=100, null=True, blank=True)
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name='user_profile', on_delete=models.CASCADE, null=True, blank=True)
