@@ -1,7 +1,5 @@
 from django.db import models
-from sqlalchemy import null
-
-# from users.models import Profile
+from users.models import User
 
 
 # Create your models here.
@@ -12,10 +10,10 @@ from sqlalchemy import null
 class Neighbourhood(models.Model):
     hood_name = models.CharField(verbose_name='Neighbourhood Name', max_length=100)
     hood_loc = models.CharField(verbose_name='Neighbourhood Location', max_length=100)
-    description = models.TextField()
+    description = models.TextField(null=True)
     hood_image = models.ImageField(upload_to = 'hood_images', null=True)
-    contact_info = models.TextField()
-    # admin = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    contact_info = models.TextField(null=True)
+    admin = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def create_neighbourhood(self):
         self.save()
@@ -38,8 +36,8 @@ class Neighbourhood(models.Model):
 
 class Business(models.Model):
     biz_name = models.CharField(verbose_name='Business Name', max_length=100)
-    # user = models.ForeignKey(Profile, related_name='business', on_delete=models.CASCADE)
-    neighbourhood = models.ForeignKey(Neighbourhood, related_name='business', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='business', on_delete=models.CASCADE, null=True)
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name='business', on_delete=models.CASCADE, null=True)
     biz_email = models.EmailField(verbose_name='Business Email')
 
 
@@ -62,3 +60,4 @@ class Post(models.Model):
     post_image = models.ImageField(upload_to = 'post_images', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name='post', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='post', on_delete=models.CASCADE, null=True)
