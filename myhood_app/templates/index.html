@@ -2,7 +2,7 @@
 
 
 {% block content %}
-    <div class="banner" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.4),rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url(../../static/images/pexels-photo-688835\ \(1\).jpeg);">
+    <div class="banner">
         <div class="container">
             <div class="row">
                 <div class="col-6">
@@ -13,11 +13,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-5 mx-auto" style="display: grid; place-items: center; min-height: 90vh;">
+                <div class="col-md-5 mx-auto center" style="min-height: 90vh;">
                     <div class="text-center p-md-4 backdrop">
                         <p class="h3 text-white fw-bold">Welcome to MyHood Community</p>
                         <p class="text-white">This is a platform where individuals from a particular locality can identify themselves in a given community. Are you new here and want to connect, get informed and interact with others?</p>
-                        <a href="" class="btn btn-outline-light mt-3 fw-bold">Get Started</a>
+                        <a href="{% url 'register' %}" class="btn btn-outline-light mt-3 fw-bold">Get Started</a>
                     </div>
                 </div>
             </div>
