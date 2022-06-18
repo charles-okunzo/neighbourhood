@@ -10,3 +10,7 @@ def home(request):
 def dashboard(request):
     context = {}
     return render(request, 'myhood_app/dashboard.html', context)
+
+def neighbourhood(request):
+    context = {}
+    return render(request, 'myhood_app/neighbourhood.html', context)

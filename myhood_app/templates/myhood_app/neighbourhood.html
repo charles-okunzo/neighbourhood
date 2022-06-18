@@ -1,0 +1,28 @@
+{% extends 'myhood_app/base.html' %}
+
+
+{% block content %}
+<div class="bg-color min-vh-100">
+    <div class="container">
+        <div class="row hood-bg" style="background-image: url(../../../static/images/pexels-photo-1543767.jpeg); min-height: 40vh;"></div>
+        <div class="row">
+            <div class="col-md-8 d-flex mx-auto profile-pic prof-top p-3">
+                <div class="border-end" style="width: 50%;">
+                    <h2 class="fw-bold my-3 font-monospace">Luhya neighbourhood</h2>
+                    <p class="">
+                        This is my neighbourhood description
+                    </p>
+                </div>
+                <div class="ms-2" style="width: 50%;">
+                    <h4><span class="iconify fs-4 color" data-icon="bi:people-fill"></span> <span class="fw-bold">10</span> Members</h4><hr>
+                    <h4 class="fw-bold mt-2">Helpline</h4>
+                    <p><span class="iconify fs-4 color" data-icon="carbon:phone-filled"></span> +254712345678</p><hr>
+                    <a href="" class="btn btn-outline-light">Find a Business</a>
+                    <a href="" class="btn btn-outline-light ms-4">Add a Post</a>
+                </div>
+                
+            </div>
+        </div><hr>
+    </div>
+</div>
+{% endblock %}

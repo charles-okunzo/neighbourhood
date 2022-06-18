@@ -77,3 +77,9 @@ small#hint_id_password2
 .profile-pic{
     transform: translateY(-35%);
 }
+
+.hood-bg{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
