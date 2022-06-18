@@ -20,5 +20,7 @@ from users import views as users_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myhood_app.urls')),
-    path('register', users_views.Register.as_view(), name='register')
+    path('register', users_views.Register.as_view(), name='register'),
+    path('login', users_views.UserLogin.as_view(), name='login'),
+
 ]

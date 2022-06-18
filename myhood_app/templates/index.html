@@ -9,12 +9,12 @@
                     <h2 class="text-white mt-3 fw-bold">My<span class="color">Hood</span></h2>
                 </div>
                 <div class="col-6">
-                    <a href="" class="btn btn-outline-light mt-3 fw-bold" style="float: right;">Log In</a>
+                    <a href="{% url 'login' %}" class="btn btn-outline-light mt-3 fw-bold" style="float: right;">Log In</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5 mx-auto center" style="min-height: 90vh;">
-                    <div class="text-center p-md-4 backdrop">
+                    <div class="text-center p-4 backdrop">
                         <p class="h3 text-white fw-bold">Welcome to MyHood Community</p>
                         <p class="text-white">This is a platform where individuals from a particular locality can identify themselves in a given community. Are you new here and want to connect, get informed and interact with others?</p>
                         <a href="{% url 'register' %}" class="btn btn-outline-light mt-3 fw-bold">Get Started</a>
