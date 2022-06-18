@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -30,7 +30,7 @@ class Neighbourhood(models.Model):
 
     @property
     def occupants_count(self):
-        return Neighbourhood.objects.all().count()
+        return self.user_profile.count()
 
 
 
