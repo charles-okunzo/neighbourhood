@@ -16,3 +16,7 @@ class UserLogin(LoginView):
     model = User
     form_class = CustomUserLoginForm
     template_name = 'users/login.html'
+
+def profile(request):
+    context ={}
+    return render(request, 'users/profile.html', context)
