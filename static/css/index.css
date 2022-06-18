@@ -63,3 +63,8 @@ small#hint_id_password2
 /* .navbar-toggler-icon{
     background-color: #fff;
 } */
+
+.card{
+    background-color: rgba(43, 43, 43, 0.8);
+    box-shadow: 2px 2px 20px 2px rgb(61, 61, 61);
+}
