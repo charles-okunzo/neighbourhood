@@ -50,6 +50,6 @@ def create_post(request, pk):
             post_form.save()
             return redirect('neighbourhood', pk=pk)
     context = {
-
+            'post_form':post_form
     }
-    return render(request, 'my_hood_app/create_post.html', context)
+    return render(request, 'myhood_app/create_post.html', context)
