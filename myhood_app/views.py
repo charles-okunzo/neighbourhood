@@ -73,3 +73,8 @@ def create_biz(request, pk):
             'biz_form':biz_form
     }
     return render(request, 'myhood_app/biz_create.html', context)
+
+
+def businesses(request, pk):
+    context = {}
+    return render(request, 'myhood_app/business.html', context)

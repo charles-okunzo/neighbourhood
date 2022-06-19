@@ -1,0 +1,44 @@
+{% extends 'myhood_app/base.html' %}
+
+
+{% block content %}
+<div class="bg-color min-vh-100">
+    <div class="container">
+        <div class="row hood-bg backdrop" style="background-image:linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../../../static/images/pexels-photo-1038916.jpeg); min-height: 40vh; display: grid; place-items: center;">
+            <div class="text-center">
+                <h2 class="color fw-bold">Businesses</h2>
+             <a href="" class="btn btn-outline-light my-3">Add business</a>
+            </div>
+        </div>
+        <div class="row">
+             <!-- <a href="" class="btn btn-outline-light my-3">Find a Business</a> -->
+             <div class="col-md-6 mx-auto pt-3">
+                 <h5><a href="" class="color nav-link"><span class="iconify" data-icon="bx:chevron-left-square"></span> Go back</a></h5>
+                 <h3>All businesses in Kisii neighbourhood <hr></h3>
+
+                 <table class="table table-dark table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Business name</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Owner</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+            
+                    </tbody>
+                  </table>
+             </div>
+
+             
+        </div>
+    </div>    
+</div>
+{% endblock %}
