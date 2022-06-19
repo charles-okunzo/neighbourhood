@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
 # from django.contrib.auth.models import AbstractUser
 
 from myhood_app.models import Neighbourhood
@@ -16,3 +17,17 @@ class Profile(models.Model):
     profile_pic = models.ImageField(upload_to = 'profiles', null = True)
     my_location = models.CharField(verbose_name='Location', max_length=100, null=True, blank=True)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name='user_profile', on_delete=models.CASCADE, null=True, blank=True)
+
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.profile_pic.path)
+
+        if img.width > 300 or img.height > 300:
+            output_size = (300,300)
+            img.thumbnail(output_size)
+            img.save(self.profile_pic.path)
+
+        def __str__(self) -> str:
+            return f'{self.user}\'s Profile'

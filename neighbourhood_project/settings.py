@@ -134,5 +134,5 @@ MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 CRISPY_TEMPLATE_PACK='bootstrap4'
 # AUTH_USER_MODEL='myhood_app.User'
 
-LOGIN_REDIRECT_URL='home'
+LOGIN_REDIRECT_URL='dashboard'
 LOGIN_URL='login'
