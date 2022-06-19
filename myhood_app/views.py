@@ -24,7 +24,10 @@ def dashboard(request):
 
 
 def neighbourhood(request, pk):
-    context = {}
+    hood = Neighbourhood.objects.get(pk=pk)
+    context = {
+        'hood':hood
+    }
     return render(request, 'myhood_app/neighbourhood.html', context)
 
 

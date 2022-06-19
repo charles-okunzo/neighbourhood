@@ -6,6 +6,6 @@ urlpatterns = [
     path('dashboard', views.dashboard, name = 'dashboard'),
     path('neighbourhood/<int:pk>', views.neighbourhood, name = 'neighbourhood'),
     path('create/neighbourhood', views.NeighbourhoodCreateView.as_view(), name='create-hood'),
-    path('neighbourhood/post/new/<int:pk>', views.neighbourhood, name = 'hood-post'),
+    path('neighbourhood/post/new/<int:pk>', views.create_post, name = 'hood-post'),
 
 ]
