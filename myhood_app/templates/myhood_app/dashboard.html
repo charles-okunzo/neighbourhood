@@ -17,7 +17,8 @@
                       <h5 class="card-title fw-bold">{{hood.hood_name}}</h5><hr class="mt-0">
                       <p class="card-text">{{hood.description}}</p>
                       <p>Located in {{hood.hood_loc}}</p>
-                      <a href="#" class="btn btn-outline-light">Join Hood</a>
+                      <button type="submit" name="hood-id" value="{{hood.pk}}" class="btn btn-outline-light">Join Hood</button>
+                      <a href="{% url 'neighbourhood' hood.id %}" class="btn btn-outline-light">Explore</a>
                     </div>
                   </div>
             </div>

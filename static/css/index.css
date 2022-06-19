@@ -94,6 +94,10 @@ small#hint_id_password2
     transform: translateY(-35%);
 }
 
+.profile-picOG{
+    transform: translateY(-20%);
+}
+
 .hood-bg{
     background-position: center;
     background-size: cover;

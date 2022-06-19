@@ -1,7 +1,7 @@
 from urllib import request
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import CreateView
-from myhood_app.forms import NeighbourhoodCreateForm
+from myhood_app.forms import NeighbourhoodCreateForm, PostCreateForm
 
 from myhood_app.models import Neighbourhood
 
@@ -13,13 +13,17 @@ def home(request):
 
 
 def dashboard(request):
+    if request.method == 'POST':
+        print(request.POST.get('hood-id'))
     neighbourhoods = Neighbourhood.objects.all()
     context = {
         'neighbourhoods':neighbourhoods
     }
     return render(request, 'myhood_app/dashboard.html', context)
 
-def neighbourhood(request):
+
+
+def neighbourhood(request, pk):
     context = {}
     return render(request, 'myhood_app/neighbourhood.html', context)
 
@@ -34,3 +38,15 @@ class NeighbourhoodCreateView(CreateView):
         form.instance.admin = self.request.user
         self.user_profile = form.instance.id
         return super().form_valid(form)
+
+def create_post(request, pk):
+    post_form = PostCreateForm()
+    if request.method == 'POST':
+        post_form = PostCreateForm(request.POST, request.FILES)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('neighbourhood', pk=pk)
+    context = {
+
+    }
+    return render(request, 'my_hood_app/create_post.html', context)

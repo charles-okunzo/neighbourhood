@@ -12,3 +12,8 @@ class NeighbourhoodCreateForm(forms.ModelForm):
         self.fields['description'].widget.attrs.update({'placeholder':'Describe your neighbourhood...'}),
         self.fields['hood_loc'].widget.attrs.update({'placeholder':'Enter your hoods location...'}),
         self.fields['contact_info'].widget.attrs.update({'placeholder':'Enter emergency contact info...'}),
+
+class PostCreateForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'post', 'post_image']
