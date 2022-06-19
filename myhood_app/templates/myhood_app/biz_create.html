@@ -1,0 +1,25 @@
+{% extends 'myhood_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="banner">
+    <div class="container-fluid register-bg">
+        <div class="row center min-vh-100 p-2">
+            <div class="col-lg-6 col-md-6 mx-auto backdrop">
+                <div class="sign-up p-4 my-4">
+                    <div class="text-center mb-5">
+                        <p class="h3 fw-bold text-whit color">Add New Business</p><hr class="color">
+                    </div>
+                    
+                    <form method="post" class="mx-md-5 text-white hood-f" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{biz_form|crispy}}
+                        <br>
+                        <button class="btn btn-light fw-bold" style="width: 100%;">SUBMIT</button>
+                    </form>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

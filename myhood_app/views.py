@@ -1,7 +1,7 @@
 from urllib import request
 from django.shortcuts import redirect, render
 from django.views.generic import CreateView
-from myhood_app.forms import NeighbourhoodCreateForm, PostCreateForm
+from myhood_app.forms import BizCreateForm, NeighbourhoodCreateForm, PostCreateForm
 
 from myhood_app.models import Neighbourhood, Post
 
@@ -59,5 +59,17 @@ def create_post(request, pk):
     }
     return render(request, 'myhood_app/create_post.html', context)
 
-def create_biz(request):
-    ...
+def create_biz(request, pk):
+    biz_form = BizCreateForm()
+    if request.method == 'POST':
+        biz_form = BizCreateForm(request.POST, request.FILES)
+        if biz_form.is_valid():
+            biz_form.instance.user = request.user
+            hood = Neighbourhood.objects.get(pk=pk)
+            biz_form.instance.neighbourhood = hood
+            biz_form.save()
+            return redirect('neighbourhood', pk=pk)
+    context = {
+            'biz_form':biz_form
+    }
+    return render(request, 'myhood_app/biz_create.html', context)
