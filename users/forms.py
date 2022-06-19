@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 
+from users.models import Profile
+
 
 class UserRegisterForm(UserCreationForm):
     class Meta:
@@ -26,3 +28,14 @@ class CustomUserLoginForm(AuthenticationForm):
         super(CustomUserLoginForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({'placeholder':'Username'})
         self.fields['password'].widget.attrs.update({'placeholder':'Password'})
+
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['bio', 'profile_pic', 'my_location']

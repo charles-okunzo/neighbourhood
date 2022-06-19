@@ -24,7 +24,9 @@ urlpatterns = [
     path('', include('myhood_app.urls')),
     path('register', users_views.Register.as_view(), name='register'),
     path('login', users_views.UserLogin.as_view(), name='login'),
-    path('profile', users_views.profile, name='profile')
+    path('profile', users_views.profile, name='profile'),
+    path('profile/update', users_views.update_profile, name = 'update-profile'),
+
 ]
 
 
