@@ -2,6 +2,7 @@ from urllib import request
 from django.shortcuts import redirect, render
 from django.views.generic import CreateView
 from myhood_app.forms import BizCreateForm, NeighbourhoodCreateForm, PostCreateForm
+from django.contrib.auth.decorators import login_required
 
 from myhood_app.models import Business, Neighbourhood, Post
 
@@ -11,7 +12,7 @@ from myhood_app.models import Business, Neighbourhood, Post
 def home(request):
     return render(request, 'index.html')
 
-
+@login_required
 def dashboard(request):
     if request.method == 'POST':
         print(request.POST.get('hood-id'))
@@ -22,7 +23,7 @@ def dashboard(request):
     return render(request, 'myhood_app/dashboard.html', context)
 
 
-
+@login_required
 def neighbourhood(request, pk):
     hood = Neighbourhood.objects.get(pk=pk)
     posts = Post.objects.filter(neighbourhood = hood.id).order_by('-created_at')
@@ -43,7 +44,7 @@ class NeighbourhoodCreateView(CreateView):
         form.instance.admin = self.request.user
         self.user_profile = form.instance.id
         return super().form_valid(form)
-
+@login_required
 def create_post(request, pk):
     post_form = PostCreateForm()
     if request.method == 'POST':
@@ -58,7 +59,7 @@ def create_post(request, pk):
             'post_form':post_form
     }
     return render(request, 'myhood_app/create_post.html', context)
-
+@login_required
 def create_biz(request, pk):
     biz_form = BizCreateForm()
     if request.method == 'POST':
@@ -74,7 +75,7 @@ def create_biz(request, pk):
     }
     return render(request, 'myhood_app/biz_create.html', context)
 
-
+@login_required
 def businesses(request, pk):
     hood = Neighbourhood.objects.get(pk=pk)
     businesses = Business.objects.filter(neighbourhood = hood)

@@ -20,10 +20,6 @@
 </head>
 <body>
 
-    {% block navbar %}
-        {% include 'myhood_app/navbar.html' %}
-    {% endblock %}
-
     {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{message.tags}} text-center">{{message}}</div>

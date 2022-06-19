@@ -2,6 +2,9 @@
 
 
 {% block content %}
+{% block navbar %}
+        {% include 'myhood_app/navbar.html' %}
+    {% endblock %}
 <div class="bg-color min-vh-100">
     <div class="container">
         <div class="row hood-bg backdrop" style="background-image:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(../../../static/images/pexels-photo-1543767.jpeg); min-height: 40vh;"></div>

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from users.forms import CustomUserLoginForm, ProfileUpdateForm, UserRegisterForm, UserUpdateForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -18,6 +19,7 @@ class UserLogin(LoginView):
     form_class = CustomUserLoginForm
     template_name = 'users/login.html'
 
+@login_required
 def update_profile(request):
     u_form = UserUpdateForm(instance=request.user)
     p_form = ProfileUpdateForm(instance=request.user.profile)
@@ -35,6 +37,8 @@ def update_profile(request):
     }
     return render(request, 'users/profile_update.html', context)
 
+
+@login_required
 def profile(request):
     context ={}
     return render(request, 'users/profile.html', context)
