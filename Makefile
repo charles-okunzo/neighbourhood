@@ -10,3 +10,6 @@ migrate:
 
 super:
 	python3 manage.py createsuperuser
+
+heroku-migrate:
+	heroku run python manage.py migrate
