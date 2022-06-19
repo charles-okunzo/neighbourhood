@@ -15,10 +15,16 @@
              <div class="col-md-6 mx-auto pt-3">
                  <h5><a href="{% url 'neighbourhood' hood.pk %}" class="color nav-link"><span class="iconify" data-icon="bx:chevron-left-square"></span> Go back</a></h5>
                  <h3>All businesses in {{hood.hood_name}} neighbourhood <hr></h3>
-                 <form class="d-flex hood-f my-3" role="search" action="{% url 'biz-page' hood.pk %}">
+                 <form class="d-flex hood-f my-3" role="search">
                     <input class="form-control me-2" type="search" name="biz_name" placeholder="Search business" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit"><span class="iconify" data-icon="akar-icons:search"></span></button>
                   </form>
+                {% if businesses %}
+                <h3 class="text-white found_div p-3">Found {{businesses|length}} businesses for {{message}}</h3>
+                {% else %}  
+                <h3 class="text-white found_div p-3">No results found for {{message}}</h3>
+                {% endif %}
+
                 {% if businesses %}
                  <table class="table table-dark table-hover">
                     <thead>
@@ -40,8 +46,6 @@
                     </tbody>
                     {% endfor %}
                   </table>
-                  {% else %}
-                  <h4 class="text-center">No businesses registered yet. <a href="{% url 'biz-create' hood.pk %}" class="btn btn-outline-light my-3">Add business</a></h4>
                   {% endif %}
              </div>
 

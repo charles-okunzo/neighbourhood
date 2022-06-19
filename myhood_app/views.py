@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import CreateView
 from myhood_app.forms import BizCreateForm, NeighbourhoodCreateForm, PostCreateForm
 
-from myhood_app.models import Neighbourhood, Post
+from myhood_app.models import Business, Neighbourhood, Post
 
 # Create your views here.
 
@@ -68,7 +68,7 @@ def create_biz(request, pk):
             hood = Neighbourhood.objects.get(pk=pk)
             biz_form.instance.neighbourhood = hood
             biz_form.save()
-            return redirect('neighbourhood', pk=pk)
+            return redirect('biz-page', pk=pk)
     context = {
             'biz_form':biz_form
     }
@@ -76,5 +76,28 @@ def create_biz(request, pk):
 
 
 def businesses(request, pk):
-    context = {}
-    return render(request, 'myhood_app/business.html', context)
+    hood = Neighbourhood.objects.get(pk=pk)
+    businesses = Business.objects.filter(neighbourhood = hood)
+
+    if 'biz_name' in request.GET and request.GET.get('biz_name'):
+        search_term = request.GET.get('biz_name')
+        businesses = Business.find_business(search_term)
+        message = f'{search_term}'
+        hood = Neighbourhood.objects.get(pk=pk)
+        found_biz = businesses
+        # businesses = Business.objects.filter(neighbourhood = hood)
+        context = {
+            'hood':hood,
+            'businesses':businesses,
+            'message':message,
+            'found_biz':found_biz
+        }
+        return render(request, 'myhood_app/search_biz.html', context)
+    else:
+        hood = Neighbourhood.objects.get(pk=pk)
+        businesses = Business.objects.filter(neighbourhood = hood)
+        context = {
+            'hood':hood,
+            'businesses':businesses
+        }
+        return render(request, 'myhood_app/business.html', context)

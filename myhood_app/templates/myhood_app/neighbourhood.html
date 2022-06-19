@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="border-end col-md-4 hood profile-pic prof-top p-3">
-                <h2 class="fw-bold my-3 font-monospace">{{hood.hood_name}}</h2>
+                <h2 class="fw-bold my-3 font-monospace color">{{hood.hood_name}}</h2>
                 <p class="">
                     {{hood.description}}
                 </p>
@@ -17,7 +17,7 @@
                 <h4><span class="iconify fs-4 color" data-icon="bi:people-fill"></span> <span class="fw-bold">{{hood.occupants_count}}</span> Members</h4><hr>
                 <h4 class="fw-bold mt-2">Helpline</h4>
                 <p><span class="iconify fs-4 color" data-icon="carbon:phone-filled"></span> {{hood.contact_info}}</p><hr>
-                <a href="{% url 'biz-create' hood.pk %}" class="btn btn-outline-light my-3">Find a Business</a>
+                <a href="{% url 'biz-page' hood.pk %}" class="btn btn-outline-light my-3">Find a Business</a>
                 <a href="{% url 'hood-post' hood.pk%}" class="btn btn-outline-light ms-4">Add a Post</a>
             </div>
                 
