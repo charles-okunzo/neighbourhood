@@ -17,3 +17,8 @@ class PostCreateForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'post', 'post_image']
+
+class BizCreateForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        fields = ['biz_name', 'biz_email']

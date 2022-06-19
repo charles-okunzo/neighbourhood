@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-5 mx-auto profile-picOG">
                 <div class="text-center">
-                    <img src="../../../static/images/pexels-photo-1543767.jpeg" class="" title="Profile picture" style="border-radius: 50%;" height="180" width="180">
+                    <img src="{{user.profile.profile_pic.url}}" class="" title="Profile picture" style="border-radius: 50%; object-fit: cover;"  height="180" width="180">
                     <h2 class="fw-bold my-3">{{user.username}}</h2>
                     <p class="">
                         {{user.profile.bio}}

@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import CreateView
 from myhood_app.forms import NeighbourhoodCreateForm, PostCreateForm
 
-from myhood_app.models import Neighbourhood
+from myhood_app.models import Neighbourhood, Post
 
 # Create your views here.
 
@@ -25,8 +25,10 @@ def dashboard(request):
 
 def neighbourhood(request, pk):
     hood = Neighbourhood.objects.get(pk=pk)
+    posts = Post.objects.filter(neighbourhood = hood.id).order_by('-created_at')
     context = {
-        'hood':hood
+        'hood':hood,
+        'posts':posts
     }
     return render(request, 'myhood_app/neighbourhood.html', context)
 
@@ -47,9 +49,15 @@ def create_post(request, pk):
     if request.method == 'POST':
         post_form = PostCreateForm(request.POST, request.FILES)
         if post_form.is_valid():
+            post_form.instance.user = request.user
+            hood = Neighbourhood.objects.get(pk=pk)
+            post_form.instance.neighbourhood = hood
             post_form.save()
             return redirect('neighbourhood', pk=pk)
     context = {
             'post_form':post_form
     }
     return render(request, 'myhood_app/create_post.html', context)
+
+def create_biz(request):
+    ...

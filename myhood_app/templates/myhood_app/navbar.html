@@ -20,7 +20,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{user.username}}
-                <img src="../../../static/images/pexels-photo-1543767.jpeg" title="Profile picture" style="border-radius: 50%;" height="30" width="30">
+                <img src="{{user.profile.profile_pic.url}}" class="" title="Profile picture" style="border-radius: 50%; object-fit: cover;"  height="30" width="30">
               </a>
               <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
                 <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>

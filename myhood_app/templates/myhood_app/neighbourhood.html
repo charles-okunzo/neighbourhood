@@ -24,31 +24,45 @@
             <div class="col-md-2"></div>
         </div>
         <div class="row">
-            <h3>
-                Community Posts <hr>
-            </h3>
-
-            <div class="col-md-4 col-lg-6 post p-3" style="width: 20rem;">
-                <h5 class="fw-bold">
-                    <img src="../../../static/images/pexels-photo-1543767.jpeg" title="Profile picture" style="border-radius: 50%;" height="30" width="30">
-                    Okunzo
-                </h5>
-                <div>
-                    <img src="../../../static/images/pexels-photo-688835 (1).jpeg" alt="" class="img-fluid" style="min-height: 40vh; object-fit: cover;">
-                </div>
-                <div>
-                    <h6 class="fw-bold">
-                        Announcement
-                    </h6>
-                    <p>
-                        Tommorow there will be a meeting at chiefs camp!!!
-                    </p>
-                </div>
-                <div>
-                    <small class="font-monospace">2 hours ago</small>
-                </div>
-
+            <div class="col-md-5 mx-auto">
+                <h3>
+                    Community Posts <hr>
+                </h3>
             </div>
+        </div>
+        <div class="row">
+            {% if posts %}
+            
+            <div class="col-md-5 mx-auto post p-3" >
+                {% for post in posts %}
+                <div class="my-4">
+                    <h5 class="fw-bold">
+                        <img src="{{post.user.profile.profile_pic.url}}" title="Profile picture" style="border-radius: 50%;" height="30" width="30">
+                        {{post.user.username}}
+                    </h5>
+                    <div>
+                        <img src="{{post.post_image.url}}" alt="" class="img-fluid" style="height: 50vh; width: 100%; object-fit: cover;">
+                    </div>
+                    <div>
+                        <h6 class="fw-bold mt-3">
+                           {{post.title}}
+                        </h6>
+                        <p>
+                            {{post.post}}
+                        </p>
+                    </div>
+                    <div>
+                        <small class="font-monospace"><span class="iconify" data-icon="bx:time"></span> {{post.created_at|timesince}} ago</small>
+                    </div>
+                </div><hr class="color">
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="col-md-5 mx-auto text-center">
+                <h3>No Posts yet...</h3>
+                <a href="{% url 'hood-post' hood.pk%}" class="btn btn-outline-light ms-4">Add a Post</a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

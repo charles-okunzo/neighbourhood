@@ -56,11 +56,18 @@ class Business(models.Model):
     def update_business(cls, name, new_name):
         return cls.objects.filter(biz_name = name).update(biz_name = new_name)
 
+    def __str__(self):
+        return self.biz_name
+
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
     post = models.TextField()
     post_image = models.ImageField(upload_to = 'post_images', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    neighbourhood = models.ForeignKey(Neighbourhood, related_name='post', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name='post', on_delete=models.CASCADE, null=True)
+    neighbourhood = models.ForeignKey(Neighbourhood, related_name='posts', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='posting_user', on_delete=models.CASCADE, null=True)
+
+
+    def __str__(self):
+        return self.title
