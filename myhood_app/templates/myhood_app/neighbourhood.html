@@ -4,25 +4,52 @@
 {% block content %}
 <div class="bg-color min-vh-100">
     <div class="container">
-        <div class="row hood-bg" style="background-image: url(../../../static/images/pexels-photo-1543767.jpeg); min-height: 40vh;"></div>
+        <div class="row hood-bg backdrop" style="background-image:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(../../../static/images/pexels-photo-1543767.jpeg); min-height: 40vh;"></div>
         <div class="row">
-            <div class="col-md-8 d-flex mx-auto profile-pic prof-top p-3">
-                <div class="border-end" style="width: 50%;">
-                    <h2 class="fw-bold my-3 font-monospace">Luhya neighbourhood</h2>
-                    <p class="">
-                        This is my neighbourhood description
+            <div class="col-md-2"></div>
+            <div class="border-end col-md-4 hood profile-pic prof-top p-3">
+                <h2 class="fw-bold my-3 font-monospace">Luhya neighbourhood</h2>
+                <p class="">
+                    This is my neighbourhood description
+                </p>
+            </div>
+            <div class="col-md-4 hood profile-pic prof-top p-3">
+                <h4><span class="iconify fs-4 color" data-icon="bi:people-fill"></span> <span class="fw-bold">10</span> Members</h4><hr>
+                <h4 class="fw-bold mt-2">Helpline</h4>
+                <p><span class="iconify fs-4 color" data-icon="carbon:phone-filled"></span> +254712345678</p><hr>
+                <a href="" class="btn btn-outline-light my-3">Find a Business</a>
+                <a href="" class="btn btn-outline-light ms-4">Add a Post</a>
+            </div>
+                
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <h3>
+                Community Posts <hr>
+            </h3>
+
+            <div class="col-md-4 col-lg-6 post p-3" style="width: 20rem;">
+                <h5 class="fw-bold">
+                    <img src="../../../static/images/pexels-photo-1543767.jpeg" title="Profile picture" style="border-radius: 50%;" height="30" width="30">
+                    Okunzo
+                </h5>
+                <div>
+                    <img src="../../../static/images/pexels-photo-688835 (1).jpeg" alt="" class="img-fluid" style="min-height: 40vh; object-fit: cover;">
+                </div>
+                <div>
+                    <h6 class="fw-bold">
+                        Announcement
+                    </h6>
+                    <p>
+                        Tommorow there will be a meeting at chiefs camp!!!
                     </p>
                 </div>
-                <div class="ms-2" style="width: 50%;">
-                    <h4><span class="iconify fs-4 color" data-icon="bi:people-fill"></span> <span class="fw-bold">10</span> Members</h4><hr>
-                    <h4 class="fw-bold mt-2">Helpline</h4>
-                    <p><span class="iconify fs-4 color" data-icon="carbon:phone-filled"></span> +254712345678</p><hr>
-                    <a href="" class="btn btn-outline-light">Find a Business</a>
-                    <a href="" class="btn btn-outline-light ms-4">Add a Post</a>
+                <div>
+                    <small class="font-monospace">2 hours ago</small>
                 </div>
-                
+
             </div>
-        </div><hr>
+        </div>
     </div>
 </div>
 {% endblock %}
