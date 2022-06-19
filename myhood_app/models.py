@@ -12,7 +12,7 @@ class Neighbourhood(models.Model):
     hood_loc = models.CharField(verbose_name='Neighbourhood Location', max_length=100)
     description = models.TextField(null=True)
     hood_image = models.ImageField(upload_to = 'hood_images', null=True)
-    contact_info = models.TextField(null=True)
+    contact_info = models.CharField(max_length=50, null=True)
     admin = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def create_neighbourhood(self):

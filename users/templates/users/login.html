@@ -8,14 +8,14 @@
         <div class="col-lg-4 col-md-6 mx-auto backdrop">
             <div class="sign-up p-4 my-4">
                 <div class="text-center mb-5">
-                    <p class="h3 fw-bold text-white">Log In</p>
+                    <p class="h3 fw-bold color">Log In</p>
                 </div>
                 
                 <form method="post" class="register mx-md-5">
                     {% csrf_token %}
                     {{form|crispy}}
                     <br>
-                    <button class="btn btn-light" style="width: 100%;">Log In</button>
+                    <button class="btn btn-light fw-bold" style="width: 100%;">Log In</button>
                     <p class="text-white mt-4">New to MyHood? <a href="{% url 'register' %}" style="color: #def71c;">Sign Up Now</a></p>
                 </form>
             </div>        

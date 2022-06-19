@@ -5,18 +5,17 @@
 <div class="banner">
 <div class="container-fluid register-bg">
     <div class="row center min-vh-100 p-2">
-        <div class="col-md-4 mx-auto backdrop">
+        <div class="col-lg-6 col-md-6 mx-auto backdrop">
             <div class="sign-up p-4 my-4">
                 <div class="text-center mb-5">
-                    <p class="h3 fw-bold color">Register</p>
+                    <p class="h3 fw-bold text-whit color">Create A New Neighbourhood</p><hr class="color">
                 </div>
                 
-                <form method="post" class="register mx-md-5">
+                <form method="post" class="mx-md-5 text-white hood-f">
                     {% csrf_token %}
                     {{form|crispy}}
                     <br>
-                    <button class="btn btn-light fw-bold" style="width: 100%;">Sign Up</button>
-                    <p class="text-white mt-4">Already registered? <a href="{% url 'login' %}" style="color: #def71c;">Log In</a></p>
+                    <button class="btn btn-light fw-bold" style="width: 100%;">SUBMIT</button>
                 </form>
             </div>        
         </div>

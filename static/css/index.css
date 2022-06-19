@@ -43,16 +43,32 @@ small#hint_id_password2
     color: #fff;
 }
 
-.register input, .register input:focus{
+.register input, 
+.register input:focus, 
+.hood-f input, 
+.hood-f textarea, 
+.hood-f input:focus,
+.hood-f textarea:focus
+{
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
 }
 
-.register input:focus{
+.hood-f label{
+    margin-top: 2vh;
+    font-weight: bold;
+}
+
+.register input:focus,
+.hood-f input:focus
+{
     border-bottom: 2px solid #def71c;
 }
-.register input::placeholder{
-    color: #fff
+.register input::placeholder,
+.hood-f input::placeholder,
+.hood-f textarea::placeholder
+{
+    color: rgb(231, 231, 231)
 }
 
 .bg-color, nav{
@@ -60,9 +76,9 @@ small#hint_id_password2
     background-color: #161616;
 }
 
-/* .navbar-toggler-icon{
+.navbar-toggler{
     background-color: #fff;
-} */
+}
 
 .card{
     background-color: rgba(43, 43, 43, 0.8);
