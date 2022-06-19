@@ -30,7 +30,10 @@ class Neighbourhood(models.Model):
 
     @property
     def occupants_count(self):
-        return self.user_profile.count()
+        return self.user_profile.count() + 1
+
+    def __str__(self):
+        return self.hood_name
 
 
 

@@ -8,16 +8,28 @@
             <h2 class="mt-5">
                 Dashboard <hr>
             </h2>
+            {% if neighbourhoods %}
+            {% for hood in neighbourhoods %}
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
-                    <img src="../../../static/images/pexels-photo-688835.jpeg" class="card-img-top" alt="...">
+                    <img src="{{hood.hood_image.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title fw-bold">Kinoo neighbourhood</h5>
-                      <p class="card-text">This is neighbourhood found in kikuyu constituency</p>
+                      <h5 class="card-title fw-bold">{{hood.hood_name}}</h5><hr class="mt-0">
+                      <p class="card-text">{{hood.description}}</p>
+                      <p>Located in {{hood.hood_loc}}</p>
                       <a href="#" class="btn btn-outline-light">Join Hood</a>
                     </div>
                   </div>
             </div>
+            {% endfor %}
+            <div class="col-md-2">
+                <a href="{% url 'create-hood' %}" class="btn btn-outline-light"><span class="iconify" data-icon="carbon:add-alt"></span> Create hood</a>
+            </div>
+            {% else %}
+            <div class="col">
+                <h4>No Neighbourhoods yet. <a href="{% url 'create-hood' %}" class="btn btn-outline-light"><span class="iconify" data-icon="carbon:add-alt"></span> Create hood</a></h4>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
