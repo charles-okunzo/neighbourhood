@@ -20,8 +20,16 @@
                       <h5 class="card-title fw-bold">{{hood.hood_name}}</h5><hr class="mt-0">
                       <p class="card-text">{{hood.description}}</p>
                       <p>Located in {{hood.hood_loc}}</p>
-                      <button type="submit" name="hood-id" value="{{hood.pk}}" class="btn btn-outline-light">Join Hood</button>
+                      {% if request.user.profile.neighbourhood == hood %}
+                      <a href="{% url 'leave-hood' hood.id %}" class="btn btn-light">Leave hood</a>
+                      {% elif not request.user.profile.neighbourhood %}
+                      <a href="{% url 'join-hood' hood.id %}" class="btn btn-outline-light">Join hood</a>
+                      {% endif %}
+                      {% if request.user.profile.neighbourhood == hood %}
                       <a href="{% url 'neighbourhood' hood.id %}" class="btn btn-outline-light">Explore</a>
+                      {% else %}
+                      <p class="color text-center">Join community to explore more</p>
+                      {% endif %}
                     </div>
                   </div>
             </div>

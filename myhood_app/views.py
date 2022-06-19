@@ -22,6 +22,17 @@ def dashboard(request):
     }
     return render(request, 'myhood_app/dashboard.html', context)
 
+def join_hood(request, pk):
+    neighbourhood = Neighbourhood.objects.get(pk=pk)
+    request.user.profile.neighbourhood = neighbourhood
+    request.user.profile.save()
+    return redirect('dashboard')
+
+def leave_hood(request, pk):
+    neighbourhood = Neighbourhood.objects.get(pk=pk)
+    request.user.profile.neighbourhood = None
+    request.user.profile.save()
+    return redirect('dashboard')
 
 @login_required
 def neighbourhood(request, pk):
