@@ -13,3 +13,6 @@ super:
 
 heroku-migrate:
 	heroku run python manage.py migrate
+
+test:
+	python3 manage.py test
