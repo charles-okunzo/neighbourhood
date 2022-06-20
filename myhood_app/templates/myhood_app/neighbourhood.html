@@ -21,7 +21,8 @@
                 <h4 class="fw-bold mt-2">Helpline</h4>
                 <p><span class="iconify fs-4 color" data-icon="carbon:phone-filled"></span> {{hood.contact_info}}</p><hr>
                 <a href="{% url 'biz-page' hood.pk %}" class="btn btn-outline-light my-3">Find a Business</a>
-                <a href="{% url 'hood-post' hood.pk%}" class="btn btn-outline-light ms-4">Add a Post</a>
+                <a href="{% url 'hood-post' hood.pk%}" class="btn btn-outline-light mx-md-2">Add a Post</a>
+                <a href="{% url 'leave-hood' hood.id %}" class="btn btn-light my-3">Leave hood</a>
             </div>
                 
             <div class="col-md-2"></div>

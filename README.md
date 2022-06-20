@@ -12,7 +12,7 @@
 
 ## Description
 This application helps individuals from a given area to connect through a community.
-    As a user I would like to:
+    As a user I can:
 
 - Sign in with the application to start using.
 - Set up a profile about me and a general location and my neighborhood name.
@@ -43,7 +43,7 @@ Log In
 Dashboard
 ```
 
-<img src="static/images/Screenshot from 2022-06-20 00-14-08.png">
+<img src="static/images/Screenshot from 2022-06-20 10-16-35.png">
 
 
 [Go Back to the top](#neighbourhood)
