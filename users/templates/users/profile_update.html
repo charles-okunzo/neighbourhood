@@ -2,9 +2,12 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+{% block navbar %}
+        {% include 'myhood_app/navbar.html' %}
+    {% endblock %}
 <div class="banner">
 <div class="container-fluid register-bg">
-    <div class="row center min-vh-100 p-2">
+    <div class="row cente min-vh-100 p-2">
         <div class="col-lg-6 col-md-6 mx-auto backdrop">
             <div class="sign-up p-4 my-4">
                 <div class="text-center mb-5">

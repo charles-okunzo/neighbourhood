@@ -75,7 +75,7 @@ small#hint_id_password2
     color: rgb(231, 231, 231)
 }
 
-#id_post_image{
+input[type='file']{
     width: 100%;
 }
 
