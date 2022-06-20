@@ -18,6 +18,7 @@ from django.urls import include, path
 from users import views as users_views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('login', users_views.UserLogin.as_view(), name='login'),
     path('profile', users_views.profile, name='profile'),
     path('profile/update', users_views.update_profile, name = 'update-profile'),
+    path('logout', LogoutView.as_view(), name='logout')
 
 ]
 
