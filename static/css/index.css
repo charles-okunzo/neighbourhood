@@ -4,6 +4,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html{
+    background-color: #161616;
+}
+
 .banner{
     min-height: 100vh;
     background-image:linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.3),rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(../../static/images/pexels-photo-688835\ \(1\).jpeg);
@@ -71,6 +75,10 @@ small#hint_id_password2
     color: rgb(231, 231, 231)
 }
 
+#id_post_image{
+    width: 100%;
+}
+
 .bg-color, nav{
     color: #fff;
     background-color: #161616;
@@ -106,6 +114,10 @@ small#hint_id_password2
 
 .post{
     background-color: rgba(43, 43, 43, 0.8);
+}
+
+.offcanvas{
+    background-color: rgba(43, 43, 43, 0.7);
 }
 
 @media only screen and (max-width:769px) {

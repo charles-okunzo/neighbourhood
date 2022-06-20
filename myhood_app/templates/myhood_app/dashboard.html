@@ -13,20 +13,20 @@
             </h2>
             {% if neighbourhoods %}
             {% for hood in neighbourhoods %}
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{hood.hood_image.url}}" class="card-img-top" alt="...">
+            <div class="col-md-6 col-lg-3">
+                <div class="card my-4">
+                    <img src="{{hood.hood_image.url}}" class="card-img-top" alt="..." style="max-height: 250px; object-fit: cover;">
                     <div class="card-body">
                       <h5 class="card-title fw-bold">{{hood.hood_name}}</h5><hr class="mt-0">
                       <p class="card-text">{{hood.description}}</p>
                       <p>Located in {{hood.hood_loc}}</p>
                       {% if request.user.profile.neighbourhood == hood %}
-                      <a href="{% url 'leave-hood' hood.id %}" class="btn btn-light">Leave hood</a>
+                      <a href="{% url 'leave-hood' hood.id %}" class="btn btn-light mt-3">Leave hood</a>
                       {% elif not request.user.profile.neighbourhood %}
-                      <a href="{% url 'join-hood' hood.id %}" class="btn btn-outline-light">Join hood</a>
+                      <a href="{% url 'join-hood' hood.id %}" class="btn btn-outline-light mt-3">Join hood</a>
                       {% endif %}
                       {% if request.user.profile.neighbourhood == hood %}
-                      <a href="{% url 'neighbourhood' hood.id %}" class="btn btn-outline-light">Explore</a>
+                      <a href="{% url 'neighbourhood' hood.id %}" class="btn btn-outline-light mt-3">Explore</a>
                       {% else %}
                       <p class="color text-center">Join community to explore more</p>
                       {% endif %}
@@ -35,7 +35,7 @@
             </div>
             {% endfor %}
             <div class="col-md-2">
-                <a href="{% url 'create-hood' %}" class="btn btn-outline-light"><span class="iconify" data-icon="carbon:add-alt"></span> Create new hood</a>
+                <a href="{% url 'create-hood' %}" class="btn btn-outline-light my-3"><span class="iconify" data-icon="carbon:add-alt"></span> Create new hood</a>
             </div>
             {% else %}
             <div class="col">

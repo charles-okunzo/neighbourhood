@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg fixed-to">
     <div class="container">
-      <a class="navbar-brand text-white h2 fw-bold" href="#">My<span class="color">Hood</span></a>
+      <a class="navbar-brand text-white h2 fw-bold" href="{% url 'dashboard' %}">My<span class="color">Hood</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">My<span class="color">Hood</span></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" class="btn-close bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
