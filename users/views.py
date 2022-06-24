@@ -12,6 +12,7 @@ class Register(CreateView):
     model = User
     form_class = UserRegisterForm
     template_name = 'users/register.html'
+    success_url = '/login'
 
 
 class UserLogin(LoginView):
